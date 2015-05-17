@@ -1,0 +1,52 @@
+# Analog pins
+
+  throttleLeft = 	A0;
+  throttleRight = 	A1;
+  SpeedBrake = 		A2;
+  Flaps = 		A3;
+
+# Digital pins
+
+  RevThrottleL = 	0;
+  RevThrottleR = 	1;
+  AtDisengangeLeft = 	2;
+  AtDisengageRight = 	3;
+  blackButtonLeft = 	4;
+  blackButtonRight = 	5;
+  CutOffLeft = 		6;
+  CutOffRight = 	7;
+  ParkingBrake = 	8;
+  ManElecCutOff = 	9;
+  AutoPilotCutOff = 	10;
+
+
+# Calibration
+
+  #Left Throttle
+  min 18
+  max 965
+
+  #Right throttle
+  min 15
+  max 998
+
+  #Speed brake
+  min  0
+  max  270
+
+  #Flaps
+  0    0 < 40
+  1   40 < 100
+  2  100 < 300
+  5  300 < 460
+  10 460 - 600
+  15 600 - 735
+  25 735 - 850
+  30 850 - 955
+  40 955 - 1023
+
+
+
+
+
+
