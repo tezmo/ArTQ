@@ -68,9 +68,13 @@ void setup()
 
 void loop() {
   
+  constrain(throttleLeft, 965, 18);
   JoySt.throttleLeft = map(analogRead(throttleLeft), 965, 18, 255, 0);
+
+  constrain(throttleRight, 15, 998);
   JoySt.throttleRight = map(analogRead(throttleRight), 15, 998, 255, 0);
 
+  constrain(SpeedBrake, 0, 270);
   JoySt.speedBrake = map(analogRead(SpeedBrake), 0, 270, 0, 255);
  
   //Check the flaps & all buttons.
