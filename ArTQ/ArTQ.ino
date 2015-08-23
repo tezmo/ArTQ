@@ -9,9 +9,8 @@ JoyState_t JoySt;
 const int throttleLeft = A0;
 const int throttleRight = A1;
 const int SpeedBrake = A2;
+const int flaps = A3;
 
-//buttons, using a slide pot
-const int Flaps = A3;
 
 //buttons
 const int RevThrottleL = 0;
@@ -76,6 +75,9 @@ void loop() {
 
   constrain(SpeedBrake, 0, 270);
   JoySt.speedBrake = map(analogRead(SpeedBrake), 0, 270, 255, 0);
+
+  constrain(flaps, 0, 270);
+  JoySt.flaps = map(analogRead(flaps), 0, 1023, 255, 0);
  
   //Check the flaps & all buttons.
   checkInputs(); 
@@ -129,35 +131,4 @@ void checkInputs() {
   if (digitalRead(AutoPilotCutOff) == LOW){ //pressed
     JoySt.buttons = JoySt.buttons | 1024;
   }
- 
-  //flaps
-  int currentFlaps = analogRead(Flaps);
-  
-  if ( (0 < currentFlaps) && (currentFlaps <= 40) ){
-    Serial.println("C13");
-  }
-  else if ( (40 < currentFlaps) && (currentFlaps <= 100) ){
-    Serial.println("C17003");
-  }
-  else if ( (100 < currentFlaps) && (currentFlaps <= 300) ){
-    Serial.println("C17005");
-  }
-  else if ( (300 < currentFlaps) && (currentFlaps <= 460) ){
-    Serial.println("C17013");
-  }
-  else if ( (460 < currentFlaps) && (currentFlaps <= 600) ){
-    Serial.println("C17025");
-  }
-  else if ( (600 < currentFlaps) && (currentFlaps <= 735) ){
-    Serial.println("C17038");
-  }
-  else if ( (735 < currentFlaps) && (currentFlaps <= 850) ){
-    Serial.println("C17063");
-  }
-  else if ( (850 < currentFlaps) && (currentFlaps <= 955) ){
-    Serial.println("C17075");
-  }
-  else if ( (955 < currentFlaps) && (currentFlaps <= 1023)){
-    Serial.println("C16");
-  } 
 }
